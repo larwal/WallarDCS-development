@@ -501,10 +501,14 @@ Public Class DiCoStation
         s88BitValuesNEW = New BitArray(s88ByteValuesNEW)    'plaats startwaarden in bitArray         
         Sleep(500)
 
+        Dim stopwatch As New Stopwatch()
+
         While inRunMode        ' Start of Main Railway hartbeat loop  =========================================================================================
 
             '1. Avoid 100% CPU
             Sleep(1)    'loop vertrager (1= 1000 loops/sec)
+
+            stopwatch.Start()
 
             '2.  DiCoStation power status control
             DCSstatus += 1
@@ -568,6 +572,10 @@ Public Class DiCoStation
             End If
             If m_haltBlokken.Length > 0 Then Halt()
 
+            Dim elapsed = stopwatch.ElapsedMilliseconds
+            ' RaiseEvent handlerStatus(String.Format("DiCoStation-ThreadLoop {0}ms", elapsed))
+
+            stopwatch.Reset()
         End While        '====================================== End of Main Railway hartbeat loop  =================================================================
         PostProcessing()
     End Sub
