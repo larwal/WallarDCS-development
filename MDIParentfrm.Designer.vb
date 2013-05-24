@@ -131,6 +131,8 @@ Partial Class MDIParentfrm
         Me.ToolStripNoodstop = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripOpkuisstatuslijn = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.ToolStripStatuslblStopwatch = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripFiller = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -748,7 +750,7 @@ Partial Class MDIParentfrm
         '
         'StatusStrip
         '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatuslblRunning, Me.ToolStripProgressBar, Me.ToolStripStatusLabelHalt, Me.ToolStripProgressBar2, Me.mdiParentStatus})
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatuslblRunning, Me.ToolStripProgressBar, Me.ToolStripStatusLabelHalt, Me.ToolStripProgressBar2, Me.mdiParentStatus, Me.ToolStripFiller, Me.ToolStripStatuslblStopwatch})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 792)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(1049, 22)
@@ -811,7 +813,7 @@ Partial Class MDIParentfrm
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripHandBesturing, Me.ToolStripStartTreinenOnderweg, Me.ToolStripReisplannen, Me.ToolStripNoodstop, Me.ToolStripOpkuisstatuslijn, Me.ToolStripProgressBar1})
         Me.ToolStrip.Location = New System.Drawing.Point(3, 0)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(786, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(755, 25)
         Me.ToolStrip.TabIndex = 1
         '
         'ToolStripHandBesturing
@@ -866,6 +868,20 @@ Partial Class MDIParentfrm
         '
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(10, 22)
+        '
+        'ToolStripStatuslblStopwatch
+        '
+        Me.ToolStripStatuslblStopwatch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripStatuslblStopwatch.Name = "ToolStripStatuslblStopwatch"
+        Me.ToolStripStatuslblStopwatch.Size = New System.Drawing.Size(121, 17)
+        Me.ToolStripStatuslblStopwatch.Text = "ToolStripStatusLabel1"
+        Me.ToolStripStatuslblStopwatch.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'ToolStripFiller
+        '
+        Me.ToolStripFiller.Name = "ToolStripFiller"
+        Me.ToolStripFiller.Size = New System.Drawing.Size(595, 17)
+        Me.ToolStripFiller.Spring = True
         '
         'MDIParentfrm
         '
@@ -1003,5 +1019,7 @@ Partial Class MDIParentfrm
     Friend WithEvents UitvoeringsModeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents S88ColonRangeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem9 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripFiller As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripStatuslblStopwatch As System.Windows.Forms.ToolStripStatusLabel
 
 End Class
