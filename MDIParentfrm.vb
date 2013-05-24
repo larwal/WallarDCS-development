@@ -34,6 +34,7 @@ Public Class MDIParentfrm
     Private Delegate Sub handler_DelegateString(ByVal s As String)  'used for string events
     Private Delegate Sub handler_DelegateStringIntegerInteger(ByVal s As String, ByVal locoNR As Integer, ByVal locoNR As Integer)
     Private Delegate Sub handler_DelegateInteger(ByVal n As Integer)  'used for number events
+    Private Delegate Sub handler_DelegateLong(ByVal n As Long)  'used for number events
     Private Delegate Sub handler_DelegateStringStringString(ByVal status As String, ByVal direction As String, ByVal address As String)
     Private Delegate Sub handler_DelegateBoolean(ByVal ok As Boolean)
     Private Delegate Sub handler_DelegateBitArray(ByVal bitsArray As BitArray)
@@ -194,6 +195,7 @@ Public Class MDIParentfrm
     Private Sub InitializeHandlers()
         'event handler for receiving information from central dicostation.vb module
         AddHandler DCS.handlerStatus, AddressOf HandlerStatus
+        AddHandler DCS.handlerStopwatch, AddressOf HandlerStopwatch
         AddHandler DCS.handlerHalt, AddressOf handlerHalt
         AddHandler DCS.handlerLogData, AddressOf HandlerLogData
         AddHandler DCS.handlerChangeBlok, AddressOf handlerChangeBlok
@@ -1041,6 +1043,14 @@ Public Class MDIParentfrm
         Me.mdiParentStatus.Text = statusLine
     End Sub
 
+    Private Sub HandlerStopwatch(elapsedTime As Long)
+        If Me.InvokeRequired Then
+            Me.BeginInvoke(New handler_DelegateLong(AddressOf HandlerStopwatch), New Object() {elapsedTime})
+            Return
+        End If
+        Me.ToolStripStatuslblStopwatch.Text = CStr(elapsedTime)
+    End Sub
+
     Private Sub HandlerS88Status(ByVal statusLine As String)
         If Me.InvokeRequired Then
             Me.BeginInvoke(New handler_DelegateString(AddressOf HandlerS88Status), New Object() {statusLine})
@@ -1184,6 +1194,8 @@ Public Class MDIParentfrm
     End Sub
 
 #End Region
+
+
 
 End Class
 

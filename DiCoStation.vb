@@ -54,6 +54,7 @@ Public Class DiCoStation
 
     'class events for communication with MDIparentFrm
     Public Event handlerStatus(ByVal statusline As String)
+    Public Event handlerStopwatch(ByVal elapsedTime As Long)
     Public Event handlerChangeBlok(ByVal status As String, ByVal BlokNR As Integer, ByVal locoNR As Integer)
     Public Event handlerOK(ByVal n As Integer)
     Public Event handlerChangeTurnout(ByVal status As String, ByVal direction As String, ByVal address As String)
@@ -572,9 +573,7 @@ Public Class DiCoStation
             End If
             If m_haltBlokken.Length > 0 Then Halt()
 
-            Dim elapsed = stopwatch.ElapsedMilliseconds
-            ' RaiseEvent handlerStatus(String.Format("DiCoStation-ThreadLoop {0}ms", elapsed))
-
+            RaiseEvent handlerStopwatch(stopwatch.ElapsedMilliseconds)
             stopwatch.Reset()
         End While        '====================================== End of Main Railway hartbeat loop  =================================================================
         PostProcessing()
