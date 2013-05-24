@@ -13,6 +13,7 @@ Imports System.Windows.Forms
 Imports System.IO
 Imports Microsoft.VisualBasic.Devices
 
+' Hier is iets gewijzigd; bla bla
 Public Class MDIParentfrm
 
 #Region "Settings and declarations"
