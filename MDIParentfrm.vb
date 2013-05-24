@@ -13,7 +13,6 @@ Imports System.Windows.Forms
 Imports System.IO
 Imports Microsoft.VisualBasic.Devices
 
-' Hier is iets gewijzigd; bla bla
 Public Class MDIParentfrm
 
 #Region "Settings and declarations"
@@ -760,7 +759,7 @@ Public Class MDIParentfrm
                 For i = 0 To m_treinenInDienst.Length - 1 Step 4         'er staat steeds een spatie voor het loconr
                     locoNR = CInt(m_treinenInDienst.Substring(i + 1, 3))
                     If m_treinen.Item(locoNR).Snelheid > 0 Then Exit Sub
-                Next               
+                Next
             Else
                 'geen treinen in dienst
             End If
