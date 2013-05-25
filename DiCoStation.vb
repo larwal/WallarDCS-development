@@ -1,8 +1,8 @@
 ﻿'Class DiCoStation is the center class between the Windows GUI, 
 'the LDT Dicostation unit, LDT-Watchdog decoder and Modellplan Digital-S-Inside2 program
 'Executes all the model railway communication
-'Visual basic 2010 Express edition 
-'(c) Wallar 2012   -  version 1.08.0.3 van 28/01/2012
+'Visual basic 2010 Express edition + Git
+'(c) Wallar 2012   -  version 3.06.0.0 van 25/05/2013
 
 Imports System
 Imports System.Threading
@@ -511,7 +511,7 @@ Public Class DiCoStation
 
             stopwatch.Start()
 
-            '2.  DiCoStation power status control
+            '3.  DiCoStation power status control
             DCSstatus += 1
             If DCSstatus = 10000 Then      'vermindert het aantal powerON/OFF controles
                 DCSstatus = 0               'reset teller
@@ -522,7 +522,7 @@ Public Class DiCoStation
                 End If
             End If
 
-            '3.  process new s88module values and put into commands
+            '4.  process new s88module values and put into commands
             If s88ModulesChanged Then
                 s88ChangesAllowed = False       'onderbreek hsi_88-USB ReadLoop tot deze gegevens verwerkt zijn
                 s88ModulesChanged = False       'reset
@@ -530,7 +530,7 @@ Public Class DiCoStation
                 s88ChangesAllowed = True        'herneem hsi_88-USB ReadLoop om nieuwe gegevens op te halen
             End If
 
-            '4.   Tempo geregelde bevelen uitsturen naar LDT-DCS apparaat (en modelbaan)
+            '5.   Tempo geregelde bevelen uitsturen naar LDT-DCS apparaat (en modelbaan)
             SyncLock syncOK1
                 If _TempoRegelingPuls(0) Then
                     _TempoRegelingPuls(0) = False       'reset
@@ -544,7 +544,7 @@ Public Class DiCoStation
                 End If
             End SyncLock
 
-            '5  Watchdog trigger every 4 seconds (default value)
+            '6  Watchdog trigger every 4 seconds (default value)
             SyncLock syncOK1
                 If _WDtimerEvent(0) Then
                     _WDtimerEvent(0) = False    'reset
@@ -552,7 +552,7 @@ Public Class DiCoStation
                 End If
             End SyncLock
 
-            '6 Behandelingsqueues
+            '7 Behandelingsqueues
             If queueVrijkomenSectie.Count > 0 Then
                 ExecVrijkomenSectie()
             elseIF StartVertragingQueue.Count > 0 Then
@@ -567,14 +567,16 @@ Public Class DiCoStation
                 QueueOpkuisTreinBehandeling()
             End If
 
-            '7.  Railway traffic follow-up
+            '8.  Railway traffic follow-up
             If m_retriggerBlokken.Length > 0 Then
                 Retrigger()
             End If
             If m_haltBlokken.Length > 0 Then Halt()
 
+            '9. Stopwatch end
             RaiseEvent handlerStopwatch(stopwatch.ElapsedMilliseconds)
             stopwatch.Reset()
+
         End While        '====================================== End of Main Railway hartbeat loop  =================================================================
         PostProcessing()
     End Sub
