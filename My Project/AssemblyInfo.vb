@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Treinbesturingsprogramma voor LDT Dicostation en Modellplan Digital-S-Inside-2")> 
 <Assembly: AssemblyCompany("Wallar")> 
 <Assembly: AssemblyProduct("WallarDCS - Digital-S-Inside, versie 3")> 
-<Assembly: AssemblyCopyright("V3-Copyright © Wallar 25/05/2013 09u00")> 
+<Assembly: AssemblyCopyright("V3-Copyright © Wallar 26/05/2013 21u00 -New")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("3.6.0.0")> 
-<Assembly: AssemblyFileVersion("3.6.0.0")> 
+<Assembly: AssemblyVersion("3.7.0.0")> 
+<Assembly: AssemblyFileVersion("3.7.0.0")> 

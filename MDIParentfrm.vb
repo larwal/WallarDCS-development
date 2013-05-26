@@ -22,6 +22,7 @@ Public Class MDIParentfrm
 
     'class variables
     Private childFormNumber As Integer
+    Private hoogsteScore As Long
     Private displayText As String
     Private threadDCS As Thread
     Private trackInfo As Boolean = False
@@ -214,11 +215,15 @@ Public Class MDIParentfrm
     End Sub
 
     Private Sub StartModelRailway()
+        Thread.CurrentThread.Name = "mdiParentFrm"
+
         'Always execute  these instructions
         threadDCS = New Thread(AddressOf DCS.ThreadEntry)
-        'threadDCS.IsBackground = True
         threadDCS.Priority = ThreadPriority.Highest
-        threadDCS.Name = "DiCoStation thread"
+        threadDCS.Name = "DiCoStation"
+        Me.displayText = "WallarDCS versie 2.11 op basis van Littfinski DiCoStation en Modellplan D-S-I versie 2" _
+          + vbNewLine + "mdiParentfrmThreadPriority = " + Thread.CurrentThread.Priority.ToString _
+          + vbNewLine + "DiCoStationThreadPriority= " + threadDCS.Priority.ToString
         threadDCS.Start()
     End Sub
 
@@ -975,6 +980,7 @@ Public Class MDIParentfrm
     Private Sub Opkuisstatuslijn()
         SyncLock syncOK
             Me.mdiParentStatus.Text = String.Empty
+            Me.hoogsteScore = 0
         End SyncLock
 
     End Sub
@@ -1047,7 +1053,8 @@ Public Class MDIParentfrm
             Me.BeginInvoke(New handler_DelegateLong(AddressOf HandlerStopwatch), New Object() {elapsedTime})
             Return
         End If
-        Me.ToolStripStatuslblStopwatch.Text = CStr(elapsedTime)
+        If elapsedTime > hoogsteScore Then hoogsteScore = elapsedTime
+            Me.ToolStripStatuslblStopwatch.Text = hoogsteScore.ToString
     End Sub
 
     Private Sub HandlerS88Status(ByVal statusLine As String)
@@ -1193,8 +1200,6 @@ Public Class MDIParentfrm
     End Sub
 
 #End Region
-
-
 
 End Class
 

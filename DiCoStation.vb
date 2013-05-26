@@ -477,6 +477,7 @@ Public Class DiCoStation
     Public Sub ThreadEntry()
 
         '1. initiatie vars
+        Dim stopwatch As New Stopwatch()
         Dim str As String = String.Empty
         Dim DCSstatus As Integer = 0
         Dim rt As Integer = ((CInt(instellingen.s88modulesLinks) + CInt(instellingen.s88modulesMidden) + CInt(instellingen.s88modulesRechts)) * 2 - 1)
@@ -496,13 +497,12 @@ Public Class DiCoStation
         s88ByteValuesNEW = CType(s88ByteValues.Clone, Byte())
 
         inRunMode = True   'all conditions ok, haertbeat while loop mag beginnen
-        RaiseEvent handlerStatus("KLaar om treinen te laten rijden")
+        RaiseEvent handlerStatus("KLaar om treinen te laten rijden, DCS-ThreadName= " + Thread.CurrentThread.Name)
         RaiseEvent handlerThreadRunning(True)
         RaiseEvent handlerOK(0)
         s88BitValuesNEW = New BitArray(s88ByteValuesNEW)    'plaats startwaarden in bitArray         
         Sleep(500)
 
-        Dim stopwatch As New Stopwatch()
 
         While inRunMode        ' Start of Main Railway hartbeat loop  =========================================================================================
 

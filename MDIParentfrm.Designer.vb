@@ -123,6 +123,8 @@ Partial Class MDIParentfrm
         Me.ToolStripStatusLabelHalt = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripProgressBar2 = New System.Windows.Forms.ToolStripProgressBar()
         Me.mdiParentStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripFiller = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatuslblStopwatch = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripContainer1 = New System.Windows.Forms.ToolStripContainer()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripHandBesturing = New System.Windows.Forms.ToolStripButton()
@@ -131,8 +133,6 @@ Partial Class MDIParentfrm
         Me.ToolStripNoodstop = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripOpkuisstatuslijn = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.ToolStripStatuslblStopwatch = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripFiller = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.ToolStripContainer1.TopToolStripPanel.SuspendLayout()
@@ -750,6 +750,7 @@ Partial Class MDIParentfrm
         '
         'StatusStrip
         '
+        Me.StatusStrip.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatuslblRunning, Me.ToolStripProgressBar, Me.ToolStripStatusLabelHalt, Me.ToolStripProgressBar2, Me.mdiParentStatus, Me.ToolStripFiller, Me.ToolStripStatuslblStopwatch})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 792)
         Me.StatusStrip.Name = "StatusStrip"
@@ -787,6 +788,24 @@ Partial Class MDIParentfrm
         Me.mdiParentStatus.Size = New System.Drawing.Size(94, 17)
         Me.mdiParentStatus.Text = "mdiParentStatus"
         '
+        'ToolStripFiller
+        '
+        Me.ToolStripFiller.Name = "ToolStripFiller"
+        Me.ToolStripFiller.Size = New System.Drawing.Size(668, 17)
+        Me.ToolStripFiller.Spring = True
+        '
+        'ToolStripStatuslblStopwatch
+        '
+        Me.ToolStripStatuslblStopwatch.AutoSize = False
+        Me.ToolStripStatuslblStopwatch.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ToolStripStatuslblStopwatch.BorderSides = CType((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) _
+            Or System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom), System.Windows.Forms.ToolStripStatusLabelBorderSides)
+        Me.ToolStripStatuslblStopwatch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToolStripStatuslblStopwatch.Name = "ToolStripStatuslblStopwatch"
+        Me.ToolStripStatuslblStopwatch.Size = New System.Drawing.Size(48, 17)
+        Me.ToolStripStatuslblStopwatch.Text = "ToolStripStatusLabel1"
+        '
         'ToolStripContainer1
         '
         Me.ToolStripContainer1.BottomToolStripPanelVisible = False
@@ -811,9 +830,10 @@ Partial Class MDIParentfrm
         '
         Me.ToolStrip.Dock = System.Windows.Forms.DockStyle.None
         Me.ToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripHandBesturing, Me.ToolStripStartTreinenOnderweg, Me.ToolStripReisplannen, Me.ToolStripNoodstop, Me.ToolStripOpkuisstatuslijn, Me.ToolStripProgressBar1})
-        Me.ToolStrip.Location = New System.Drawing.Point(3, 0)
+        Me.ToolStrip.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip.Name = "ToolStrip"
-        Me.ToolStrip.Size = New System.Drawing.Size(755, 25)
+        Me.ToolStrip.Size = New System.Drawing.Size(1049, 25)
+        Me.ToolStrip.Stretch = True
         Me.ToolStrip.TabIndex = 1
         '
         'ToolStripHandBesturing
@@ -851,8 +871,9 @@ Partial Class MDIParentfrm
         Me.ToolStripNoodstop.Image = CType(resources.GetObject("ToolStripNoodstop.Image"), System.Drawing.Image)
         Me.ToolStripNoodstop.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripNoodstop.Name = "ToolStripNoodstop"
-        Me.ToolStripNoodstop.Size = New System.Drawing.Size(273, 22)
-        Me.ToolStripNoodstop.Text = "                         N O O D S T O P                            "
+        Me.ToolStripNoodstop.Size = New System.Drawing.Size(333, 22)
+        Me.ToolStripNoodstop.Text = "                                   N O O D S T O P                               " & _
+    "       "
         '
         'ToolStripOpkuisstatuslijn
         '
@@ -868,20 +889,6 @@ Partial Class MDIParentfrm
         '
         Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
         Me.ToolStripProgressBar1.Size = New System.Drawing.Size(10, 22)
-        '
-        'ToolStripStatuslblStopwatch
-        '
-        Me.ToolStripStatuslblStopwatch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripStatuslblStopwatch.Name = "ToolStripStatuslblStopwatch"
-        Me.ToolStripStatuslblStopwatch.Size = New System.Drawing.Size(121, 17)
-        Me.ToolStripStatuslblStopwatch.Text = "ToolStripStatusLabel1"
-        Me.ToolStripStatuslblStopwatch.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'ToolStripFiller
-        '
-        Me.ToolStripFiller.Name = "ToolStripFiller"
-        Me.ToolStripFiller.Size = New System.Drawing.Size(595, 17)
-        Me.ToolStripFiller.Spring = True
         '
         'MDIParentfrm
         '
