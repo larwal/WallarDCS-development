@@ -197,13 +197,14 @@ Public Class HsiUsb
         s88ChangesAllowed = True        's88module wijzigingen mogen ontvangen worden
         Do
             Do      'wachten tot s88DataProcessing klaar is om nieuwe s88module wijzigingen te verwerken
-                Application.DoEvents()
+                'Application.DoEvents()
                 Sleep(1)
             Loop Until s88ChangesAllowed
             '===========================================
             read = usbStream.ReadByte()     'i-cmd= 105, hier wacht het programma tot er een byte is
             If Not _readLoopActive Then
-                Application.DoEvents()
+                'Application.DoEvents()
+                Sleep(0)
                 Exit Sub 'verlaat subroutine
             End If
             '===========================================

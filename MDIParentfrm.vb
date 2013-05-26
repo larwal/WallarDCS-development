@@ -79,8 +79,8 @@ Public Class MDIParentfrm
 
         '4.  show the user interface (MDIParentfrm)
         Do
-            Sleep(10)
-            Application.DoEvents()
+            Application.DoEvents()  'hier noodzakelijk
+            Sleep(100)
         Loop Until showMainDisplay
         Me.WindowState = FormWindowState.Maximized
 
@@ -216,7 +216,7 @@ Public Class MDIParentfrm
     Private Sub StartModelRailway()
         'Always execute  these instructions
         threadDCS = New Thread(AddressOf DCS.ThreadEntry)
-        threadDCS.IsBackground = True
+        'threadDCS.IsBackground = True
         threadDCS.Priority = ThreadPriority.Highest
         threadDCS.Name = "DiCoStation thread"
         threadDCS.Start()

@@ -6,6 +6,7 @@ Option Compare Binary
 Option Strict On
 
 Imports System.IO
+Imports System.Threading.Thread
 
 Public Class Input
     Inherits System.Windows.Forms.Form
@@ -2242,7 +2243,8 @@ Public Class Input
 
             End If
         End If
-        Application.DoEvents()
+        'Application.DoEvents()
+        Sleep(1)
         i = txtReisweg.Text.Length
         j = txtReisweg.Text.LastIndexOfAny("Ee".ToCharArray)
         k = txtReisweg.Text.LastIndexOfAny("Bb".ToCharArray)
