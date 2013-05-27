@@ -174,7 +174,7 @@ Public Class DiCoStation
 
 #End Region
 
-#Region "Iniatialisation subs and functions: Blokken, Loco, wissels, K8055"
+#Region "Initialisation subs and functions: Blokken, Loco, wissels, K8055"
 
     Private Function InitiateBlokken() As Boolean
 
@@ -257,7 +257,7 @@ Public Class DiCoStation
                                 Else    's bevat een locoNR
                                     SyncLock syncOK1
                                         If CInt(s) <> 0 Then
-                                            If g_locoData(CInt(s)).LocoInDienst = 0 Then
+                                            If g_locoData(CInt(s)).locoInDienst = 0 Then
                                                 n = MessageBox.Show("Ingave voor bloknummer " & blokNR.ToString & vbNewLine & vbNewLine _
                                                 & "Het ingegeven loconummer  " & s _
                                                 & "  is niet in gebruik volgens gegevens in 'LocoData.txt'" _
@@ -290,7 +290,7 @@ Public Class DiCoStation
                             'controles op consistentie van de loco-blok gegevens
                             ok1 = True
                             SyncLock syncOK1
-                                If m_blok(blokNR).locoNR > 0 AndAlso m_blok(blokNR).locoNR < 81 AndAlso g_locoData(m_blok(blokNR).locoNR).LocoInDienst = 0 Then
+                                If m_blok(blokNR).locoNR > 0 AndAlso m_blok(blokNR).locoNR < 81 AndAlso g_locoData(m_blok(blokNR).locoNR).locoInDienst = 0 Then
                                     n = MessageBox.Show("Ingave voor bloknummer " & blokNR.ToString & vbNewLine & vbNewLine _
                                     & "Het ingegeven loconummer  " & Format(m_blok(blokNR).locoNR, "###") _
                                     & "  is niet in gebruik volgens gegevens in 'LocoData.txt'" _

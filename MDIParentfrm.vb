@@ -221,9 +221,11 @@ Public Class MDIParentfrm
         threadDCS = New Thread(AddressOf DCS.ThreadEntry)
         threadDCS.Priority = ThreadPriority.Highest
         threadDCS.Name = "DiCoStation"
-        Me.displayText = "WallarDCS versie 2.11 op basis van Littfinski DiCoStation en Modellplan D-S-I versie 2" _
-          + vbNewLine + "mdiParentfrmThreadPriority = " + Thread.CurrentThread.Priority.ToString _
-          + vbNewLine + "DiCoStationThreadPriority= " + threadDCS.Priority.ToString
+        Me.displayText = "======================================================================================" _
+            + vbNewLine + "WallarDCS versie 2.11 op basis van Littfinski DiCoStation en Modellplan D-S-I versie 2" _
+          + vbNewLine + "mdiParentfrmThreadPriority = " + Thread.CurrentThread.Priority.ToString + ", ThreadID= " + Thread.CurrentThread.ManagedThreadId.ToString _
+          + vbNewLine + "DiCoStationThreadPriority= " + threadDCS.Priority.ToString + ", ThreadID= " + threadDCS.ManagedThreadId.ToString _
+          + vbNewLine + "======================================================================================"
         threadDCS.Start()
     End Sub
 
